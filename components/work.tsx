@@ -78,7 +78,7 @@ export default function Work() {
               .replace(/(^-|-$)/g, "")
 
             return (
-              <Link key={index} href={`/portfolio/${slug}`} className="group block">
+              <Link key={index} href={`/projects/${slug}`} className="group block">
                 <Card
                   className={`relative overflow-hidden rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-500 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1 animate-fade-in-up animate-delay-${Math.min((index + 1) * 100, 300)}`}
                 >

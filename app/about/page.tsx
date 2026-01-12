@@ -7,7 +7,7 @@ import { Award, Code, Users, Target, Lightbulb, TrendingUp, CheckCircle2 } from 
 export const metadata: Metadata = {
   title: "About | Lokendra Jatav - Full Stack Developer & Digital Craftsman",
   description:
-    "Learn about my journey as a full-stack developer, my approach to building digital solutions, and the values that drive my work. Over 8 years of experience delivering exceptional results for ambitious businesses.",
+    "Learn about my journey as a full-stack developer, my approach to building digital solutions, and the values that drive my work. Over 2 years of experience delivering exceptional results for ambitious businesses.",
   openGraph: {
     title: "About | Lokendra Jatav - Full Stack Developer",
     description:
@@ -481,7 +481,7 @@ export default function AboutPage() {
                 variant="outline"
                 className="group rounded-full border-2 border-border px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-medium text-foreground hover:border-primary hover:bg-primary/5 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
               >
-                <Link href="/portfolio">View My Work</Link>
+                <Link href="/projects">View My Work</Link>
               </Button>
             </div>
           </div>

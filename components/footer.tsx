@@ -63,11 +63,11 @@ export default function Footer() {
                 Services
               </Link>
               <Link
-                href="/portfolio"
+                href="/projects"
                 className="group flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
               >
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                Portfolio
+                Projects
               </Link>
               <Link
                 href="/blog"

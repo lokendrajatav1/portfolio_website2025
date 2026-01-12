@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { MessageSquare, Send, Clock, Shield, Mail, Phone, MapPin, CheckCircle, Star } from "lucide-react"
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -29,39 +29,60 @@ export default function Contact() {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus({ type: null, message: "" })
-
     try {
-      const googleSheetsUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_URL
+      const sheetsUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_URL
+      if (!sheetsUrl) throw new Error('Google Sheets URL is not configured')
 
-      if (!googleSheetsUrl) {
-        throw new Error("Google Sheets URL is not configured. Please check your environment variables.")
-      }
+      // Populate hidden form inputs then submit to Apps Script via a hidden iframe
+      const form = formRef.current
+      if (!form) throw new Error('Internal form not available')
+      ;(form.elements.namedItem('name') as HTMLInputElement).value = formData.name
+      ;(form.elements.namedItem('email') as HTMLInputElement).value = formData.email
+      ;(form.elements.namedItem('company') as HTMLInputElement).value = formData.company
+      ;(form.elements.namedItem('budget') as HTMLInputElement).value = formData.budget
+      ;(form.elements.namedItem('timeline') as HTMLInputElement).value = formData.timeline
+      ;(form.elements.namedItem('message') as HTMLInputElement).value = formData.message
 
-      const response = await fetch(googleSheetsUrl, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
-
+      form.submit()
+      // Clear the visible controlled inputs immediately so the UI resets
+      // (the iframe message handler will also clear on success; this is a UX fallback)
+      setFormData({ name: '', email: '', company: '', budget: '', timeline: '', message: '' })
+      // Optimistic UI: show a thank-you message immediately after submit
       setSubmitStatus({
-        type: "success",
-        message: "Thank you for reaching out! You'll receive a confirmation email shortly, and I'll get back to you within 24 hours.",
+        type: 'success',
+        message: "Thank you for reaching out! I've received your message and will reply within 24 hours.",
       })
-
-      setFormData({ name: "", email: "", company: "", budget: "", timeline: "", message: "" })
+      setIsSubmitting(false)
+      // Wait for message from iframe (handled in message listener)
     } catch (error) {
-      console.error("Form submission error:", error)
+      console.error('Form submission error:', error)
       setSubmitStatus({
-        type: "error",
-        message: error instanceof Error ? error.message : "Something went wrong. Please try again or email me directly at lokendrajatav1503@gmail.com",
+        type: 'error',
+        message: error instanceof Error ? error.message : 'Something went wrong. Please try again or email me directly at lokendrajatav1503@gmail.com',
       })
-    } finally {
       setIsSubmitting(false)
     }
   }
+
+  const formRef = useRef<HTMLFormElement | null>(null)
+
+  useEffect(() => {
+    function onMessage(e: MessageEvent) {
+      if (!e.data) return
+      if (e.data.status === 'ok') {
+        setSubmitStatus({
+          type: 'success',
+          message: "Thank you for reaching out! You'll receive a confirmation email shortly, and I'll get back to you within 24 hours.",
+        })
+        setFormData({ name: '', email: '', company: '', budget: '', timeline: '', message: '' })
+      } else if (e.data.status === 'error') {
+        setSubmitStatus({ type: 'error', message: e.data.message || 'Submission failed' })
+      }
+      setIsSubmitting(false)
+    }
+    window.addEventListener('message', onMessage)
+    return () => window.removeEventListener('message', onMessage)
+  }, [])
 
   return (
     <section id="contact" className="scroll-mt-20 bg-gradient-to-b from-muted/20 via-background to-muted/10 py-24 sm:py-32 lg:py-40 relative overflow-hidden">
@@ -133,6 +154,22 @@ export default function Contact() {
                       </div>
                     </div>
                   )}
+                  {/* Hidden native form & iframe for direct Apps Script POST (no backend) */}
+                  <form
+                    ref={formRef}
+                    action={process.env.NEXT_PUBLIC_GOOGLE_SHEETS_URL}
+                    method="POST"
+                    target="gsheet-iframe"
+                    style={{ display: 'none' }}
+                  >
+                    <input name="name" type="hidden" />
+                    <input name="email" type="hidden" />
+                    <input name="company" type="hidden" />
+                    <input name="budget" type="hidden" />
+                    <input name="timeline" type="hidden" />
+                    <input name="message" type="hidden" />
+                  </form>
+                  <iframe name="gsheet-iframe" style={{ display: 'none' }} />
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid gap-6 sm:grid-cols-2">
                       <div className="space-y-2">
@@ -181,11 +218,11 @@ export default function Contact() {
                           onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                           className="w-full rounded-xl border border-border/50 bg-background/50 backdrop-blur-sm px-3 py-2 text-sm"
                         >
-                          <option value="">Select budget range</option>
-                          <option value="5k-10k">$5,000 - $10,000</option>
-                          <option value="10k-25k">$10,000 - $25,000</option>
-                          <option value="25k-50k">$25,000 - $50,000</option>
-                          <option value="50k+">$50,000+</option>
+                          <option value="">Select budget range (₹)</option>
+                          <option value="5k-10k">₹5,000 - ₹10,000</option>
+                          <option value="10k-25k">₹10,000 - ₹25,000</option>
+                          <option value="25k-50k">₹25,000 - ₹50,000</option>
+                          <option value="50k+">₹50,000+</option>
                         </select>
                       </div>
                     </div>

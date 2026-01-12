@@ -6,7 +6,7 @@ const benefits = [
     icon: Shield,
     title: "Proven Track Record",
     description:
-      "8+ years of experience with 150+ successful projects. I deliver on time, within budget, and exceed expectations consistently.",
+      "2+ years of experience with 10+ successful projects. I deliver on time, within budget, and exceed expectations consistently.",
     stats: "98% client satisfaction",
     color: "from-blue-500/10 to-cyan-500/10",
   },

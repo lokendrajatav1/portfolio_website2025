@@ -65,10 +65,10 @@ export default function Header() {
             <div className="absolute -bottom-1 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full" />
           </Link>
           <Link
-            href="/portfolio"
+            href="/projects"
             className="group relative text-sm font-medium tracking-wide text-muted-foreground transition-colors hover:text-foreground"
           >
-            Portfolio
+            Projects
             <div className="absolute -bottom-1 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full" />
           </Link>
           <Link
@@ -143,11 +143,11 @@ export default function Header() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
-              href="/portfolio"
+              href="/projects"
               className="group flex items-center justify-between px-4 py-3 text-sm font-medium tracking-wide text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all duration-300"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Portfolio
+              Projects
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link

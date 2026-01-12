@@ -232,7 +232,7 @@ export default function BlogPage() {
                       <ArrowRight className="h-4 w-4" />
                     </Link>
                     <Link 
-                      href="/portfolio" 
+                      href="/projects" 
                       className="inline-flex items-center justify-center gap-2 rounded-full border border-border/50 bg-background/50 backdrop-blur-sm px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-medium text-foreground hover:bg-muted/50 transition-all duration-300 w-full sm:w-auto"
                     >
                       View Projects

@@ -102,16 +102,12 @@ const achievements = [
 export default function SkillsPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-background via-muted/20 to-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-24 sm:py-32">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-10 sm:py-16 lg:py-20">
         {/* Header */}
         <div className="text-center mb-20 animate-fade-in-up">
-          <div className="mb-8 inline-flex items-center gap-2 border border-border/50 bg-muted/50 backdrop-blur-sm px-6 py-3 rounded-full">
-            <Zap className="h-4 w-4 text-primary" />
-            <p className="text-sm font-medium tracking-wider text-muted-foreground">Technical Expertise</p>
-          </div>
-          <h1 className="mb-8 font-serif text-5xl sm:text-6xl lg:text-7xl font-light leading-tight tracking-tight text-foreground">
-            Skills &
-            <span className="block text-primary">Technologies</span>
+
+          <h1 className="mb-8 font-serif text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-foreground">
+            Skills & <span className="text-primary">Technologies</span>
           </h1>
           <div className="mx-auto mb-6 h-1 w-24 bg-primary rounded-full" />
           <p className="mx-auto max-w-3xl text-xl sm:text-2xl font-light leading-relaxed text-muted-foreground">

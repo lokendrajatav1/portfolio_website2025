@@ -51,19 +51,14 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="process" className="scroll-mt-20 border-b border-border/50 py-24 sm:py-32 lg:py-40">
+    <section id="process" className="scroll-mt-20 border-b border-border/50 py-10 sm:py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="mx-auto mb-20 max-w-4xl text-center animate-fade-in-up">
-          <div className="mb-8 inline-flex items-center gap-2 border border-border/50 bg-muted/50 backdrop-blur-sm px-6 py-3 rounded-full">
-            <CheckCircle className="h-4 w-4 text-primary" />
-            <p className="text-sm font-medium tracking-wider text-muted-foreground">Process</p>
-          </div>
-          <h2 className="mb-6 sm:mb-8 font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-tight tracking-tight text-foreground text-balance">
-            How we'll work
-            <span className="block text-primary">together</span>
+        <div className="mx-auto mb-16 max-w-3xl text-center animate-fade-in-up">
+          <h2 className="mb-6 font-serif text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-foreground text-balance">
+            How we'll work <span className="text-primary">together</span>
           </h2>
-          <div className="mx-auto mb-6 h-1 w-24 bg-primary rounded-full" />
-          <p className="text-lg sm:text-xl lg:text-2xl font-light leading-relaxed text-muted-foreground">
+          <div className="mx-auto mb-6 h-1 w-16 sm:w-24 bg-primary rounded-full" />
+          <p className="text-base sm:text-lg lg:text-xl font-light leading-relaxed text-muted-foreground">
             A transparent, collaborative process designed to deliver exceptional results while keeping you informed every step of the way.
           </p>
         </div>
@@ -80,7 +75,7 @@ export default function Process() {
                   key={index}
                   className={`relative animate-fade-in-up animate-delay-${Math.min((index + 1) * 100, 500)}`}
                 >
-                  <Card className="group relative overflow-hidden rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-500 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
+                  <Card className="group relative overflow-hidden rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-500 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     
                     <div className="relative flex flex-col gap-6 p-8 sm:p-10 lg:flex-row lg:items-start">
@@ -102,13 +97,13 @@ export default function Process() {
                       
                       <div className="flex-1">
                         <CardHeader className="p-0">
-                          <CardTitle className="mb-4 font-serif text-3xl sm:text-4xl font-light tracking-tight text-foreground group-hover:text-primary transition-colors duration-500">
+                          <CardTitle className="mb-4 font-serif text-xl sm:text-2xl font-light tracking-tight text-foreground group-hover:text-primary transition-colors duration-500">
                             {step.title}
                           </CardTitle>
                         </CardHeader>
                         
                         <CardContent className="p-0">
-                          <p className="mb-6 text-lg font-light leading-relaxed text-muted-foreground">
+                          <p className="mb-6 text-sm sm:text-base font-light leading-relaxed text-muted-foreground">
                             {step.description}
                           </p>
                           

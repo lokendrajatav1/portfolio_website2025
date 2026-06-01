@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X, ArrowRight } from "lucide-react"
 import { useState, useEffect } from "react"
@@ -23,12 +24,20 @@ export default function Header() {
         ? 'border-b border-border/50 bg-background/90 backdrop-blur-xl shadow-lg' 
         : 'border-b border-border/30 bg-background/80 backdrop-blur-xl'
     }`}>
-      <nav className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-12 py-4 sm:py-6">
+      <nav className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-12 py-2 sm:py-4">
         <Link 
           href="/" 
-          className="group font-serif text-xl sm:text-2xl font-light tracking-tight text-foreground hover:text-primary transition-colors duration-300"
+          className="group flex items-center gap-3 transition-opacity hover:opacity-80"
         >
-          <span className="relative">
+          <div className="relative h-10 w-10 sm:h-12 sm:w-12 overflow-hidden rounded-full border border-primary/20 shadow-sm">
+            <Image
+              src="/lokendra_profile.png"
+              alt="Lokendra Jatav"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <span className="relative font-serif text-xl sm:text-2xl font-light tracking-tight text-foreground group-hover:text-primary transition-colors duration-300">
             Lokendra Jatav
             <div className="absolute -bottom-1 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full" />
           </span>

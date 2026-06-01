@@ -54,19 +54,14 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="scroll-mt-20 border-b border-border/50 py-24 sm:py-32 lg:py-40">
+    <section id="services" className="scroll-mt-20 border-b border-border/50 py-10 sm:py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="mx-auto mb-20 max-w-4xl text-center animate-fade-in-up">
-          <div className="mb-8 inline-flex items-center gap-2 border border-border/50 bg-muted/50 backdrop-blur-sm px-6 py-3 rounded-full">
-            <Zap className="h-4 w-4 text-primary" />
-            <p className="text-sm font-medium tracking-wider text-muted-foreground">Services</p>
-          </div>
-          <h2 className="mb-6 sm:mb-8 font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-tight tracking-tight text-foreground text-balance">
-            What I can do
-            <span className="block text-primary">for you</span>
+        <div className="mx-auto mb-16 max-w-3xl text-center animate-fade-in-up">
+          <h2 className="mb-6 font-serif text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-foreground text-balance">
+            What I can do <span className="text-primary">for you</span>
           </h2>
-          <div className="mx-auto mb-6 h-1 w-24 bg-primary rounded-full" />
-          <p className="text-lg sm:text-xl lg:text-2xl font-light leading-relaxed text-muted-foreground">
+          <div className="mx-auto mb-6 h-1 w-16 sm:w-24 bg-primary rounded-full" />
+          <p className="text-base sm:text-lg lg:text-xl font-light leading-relaxed text-muted-foreground">
             Full-stack development services designed to transform your ideas into powerful digital solutions that drive growth and success.
           </p>
         </div>
@@ -84,10 +79,10 @@ export default function Services() {
                   <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl border border-border/50 bg-muted/50 group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-500">
                     <Icon className="h-8 w-8 text-foreground group-hover:text-primary transition-colors duration-500" />
                   </div>
-                  <CardTitle className="mb-4 font-serif text-2xl sm:text-3xl font-light tracking-tight text-foreground group-hover:text-primary transition-colors duration-500">
+                  <CardTitle className="mb-3 font-serif text-xl sm:text-2xl font-light tracking-tight text-foreground group-hover:text-primary transition-colors duration-500">
                     {service.title}
                   </CardTitle>
-                  <p className="mb-6 text-base sm:text-lg font-light leading-relaxed text-muted-foreground">
+                  <p className="mb-6 text-sm sm:text-base font-light leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
                   <ul className="space-y-3">

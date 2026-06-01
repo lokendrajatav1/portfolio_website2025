@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
   return (
     <main className="min-h-screen">
-      <Work />
+      <Work className="py-10 sm:py-16 lg:py-20 bg-gradient-to-b from-background via-muted/20 to-background" />
     </main>
   )
 }

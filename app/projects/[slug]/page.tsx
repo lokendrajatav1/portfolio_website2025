@@ -5,50 +5,66 @@ import type { Metadata } from "next"
 
 const projects = [
   {
-    slug: "e-commerce-platform",
-    title: "E-Commerce Platform",
-    category: "Full-Stack Application",
+    slug: "novasathi-com",
+    title: "NovaSathi.com",
+    category: "Astrology Platform",
     description:
-      "Complete e-commerce solution with advanced inventory management, real-time analytics, and seamless payment processing. Built for scalability and performance.",
-    outcome: "Increased sales by 40%, reduced order processing time by 60%, and improved customer satisfaction scores.",
+      "A comprehensive astrology platform offering personalized daily horoscopes, live consultations, and detailed birth chart analysis. Built with a modern tech stack for a seamless user experience.",
+    outcome: "Successfully launched with integrated secure payment gateways and interactive user features.",
     metrics: {
-      performance: "99.9% uptime",
-      users: "10K+ active users",
-      growth: "40% sales increase"
+      performance: "Optimized Load Times",
+      users: "Growing Community",
+      growth: "Steady Engagement"
     },
-    tech: ["Next.js", "TypeScript", "PostgreSQL", "Stripe", "AWS"],
-    image: "/modern-ecommerce-dashboard.png",
+    tech: ["React", "Node.js", "Express", "Redis", "PostgreSQL", "PhonePe API", "whatsapp API", "webRTC", "socket.io"],
+    image: "/novasathi.png",
   },
   {
-    slug: "ai-powered-healthcare-platform",
-    title: "AI-Powered Healthcare Platform",
-    category: "Healthcare Technology",
+    slug: "labelaizaitech-com",
+    title: "Labelaizaitech.com",
+    category: "Technology Platform",
     description:
-      "Intelligent appointment booking system with AI-driven scheduling optimization, automated reminders, and predictive analytics for better patient care.",
-    outcome: "Reduced no-shows by 65%, streamlined operations, and improved patient engagement through smart automation.",
+      "An innovative technology platform delivering cutting-edge solutions. (Details pending - website currently unreachable to gather data).",
+    outcome: "Successfully developed and launched.",
     metrics: {
-      performance: "65% fewer no-shows",
-      users: "5K+ patients",
-      growth: "3x booking efficiency"
+      performance: "Optimized Performance",
+      users: "Active User Base",
+      growth: "Continuous Scaling"
     },
-    tech: ["React", "Node.js", "MongoDB", "OpenAI", "Twilio"],
-    image: "/healthcare-appointment-booking-interface.jpg",
+    tech: ["Next.js", "React", "Node.js", "Tailwind CSS"],
+    image: "/labelzai.png",
   },
   {
-    slug: "marketing-analytics-suite",
-    title: "Marketing Analytics Suite",
-    category: "Data Analytics Platform",
+    slug: "the-comfort-journey",
+    title: "The Comfort Journey",
+    category: "Car Rental Platform",
     description:
-      "Comprehensive marketing dashboard that aggregates data from multiple channels, provides actionable insights, and automates reporting for marketing teams.",
-    outcome: "Saved 20+ hours weekly on reporting, improved campaign ROI by 35%, and enhanced decision-making speed.",
+      "A seamless self-drive car rental platform based in Indore. It offers users the freedom to book affordable cars online with real-time tracking and instant confirmations.",
+    outcome: "Successfully launched with a growing fleet and satisfied customer base.",
     metrics: {
-      performance: "20h weekly saved",
-      users: "500+ marketers",
-      growth: "35% ROI improvement"
+      performance: "Optimized Booking Flow",
+      users: "Growing Customer Base",
+      growth: "Expanding Fleet"
     },
-    tech: ["Next.js", "Python", "Chart.js", "REST APIs", "Redis"],
-    image: "/marketing-analytics-dashboard-charts.jpg",
+    tech: ["React", "Redux", "Socket.io", "React Query"],
+    image: "/thecomfortjourney.png",
   },
+  {
+    slug: "billistry",
+    title: "Billistry",
+    category: "Inventory & Billing Platform",
+    description:
+      "A comprehensive inventory management and billing solution for businesses. Features include real-time stock tracking, automated alerts, WhatsApp billing with QR payments, and AI-driven optimization.",
+    outcome: "Streamlined warehouse operations and enhanced professional billing.",
+    metrics: {
+      performance: "99.98% System Uptime",
+      users: "120+ Active Warehouses",
+      growth: "45,000+ Products Tracked"
+    },
+    tech: ["Next.js", "React", "Node.js", "Tailwind CSS", "PostgreSQL"],
+    image: "/billistry.png",
+  },
+
 ]
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
@@ -73,18 +89,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-muted/20 to-background py-24 sm:py-32 lg:py-40">
+    <main className="min-h-screen bg-gradient-to-b from-background via-muted/20 to-background py-10 sm:py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-5xl mx-auto">
           <Link href="/portfolio" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary mb-6">
             <ArrowLeft className="h-4 w-4" />
             Back to Portfolio
           </Link>
-
-          <div className="mb-8 inline-flex items-center gap-2 border border-border/50 bg-muted/50 backdrop-blur-sm px-6 py-3 rounded-full">
-            <Zap className="h-4 w-4 text-primary" />
-            <span className="text-sm font-medium text-muted-foreground">{project.category}</span>
-          </div>
 
           <h1 className="font-serif text-4xl sm:text-5xl font-light text-foreground mb-6">{project.title}</h1>
           <p className="text-lg text-muted-foreground mb-8">{project.description}</p>

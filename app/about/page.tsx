@@ -22,13 +22,9 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20" />
-        <div className="relative mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-12 py-16 sm:py-24 lg:py-32 xl:py-40">
+        <div className="relative mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-12 py-10 sm:py-16 lg:py-20 xl:py-24">
           <div className="grid items-center gap-12 sm:gap-16 lg:grid-cols-[1fr_400px]">
             <div className="w-full max-w-5xl">
-              <div className="mb-6 sm:mb-8 inline-flex items-center gap-2 border border-border/50 bg-muted/50 backdrop-blur-sm px-4 sm:px-6 py-2 sm:py-3 rounded-full animate-fade-in">
-                <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-xs sm:text-sm font-medium tracking-wider text-muted-foreground">ABOUT ME</span>
-              </div>
 
               <h1 className="mb-6 sm:mb-8 lg:mb-10 font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-light leading-tight tracking-tight text-foreground animate-fade-in-up animate-delay-100">
                 Building Digital
